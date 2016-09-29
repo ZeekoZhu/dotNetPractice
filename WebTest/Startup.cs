@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -40,7 +36,7 @@ namespace WebTest
 
             app.UseMvc(routes =>
             {
-                // Serve Default Static Page
+                // Serve Default Static Page as Main page
                 routes.MapRoute(
                     name: "default",
                     template: "{action=Index}.html",
@@ -55,6 +51,14 @@ namespace WebTest
                 name: "mvcpath",
                 template: "{controller}/{action}");
             });
+
+            #region Static Files
+                var options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("index.html");
+            app.UseDefaultFiles(options);
+            app.UseStaticFiles();
+            #endregion
         }
     }
 }
