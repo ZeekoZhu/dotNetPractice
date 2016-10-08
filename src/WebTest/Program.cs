@@ -20,6 +20,7 @@ namespace WebTest
 
             var host = new WebHostBuilder()
                 .UseConfiguration(config)
+                .UseUrls("http://localhost:2333")
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()

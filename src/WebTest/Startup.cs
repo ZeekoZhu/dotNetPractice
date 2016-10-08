@@ -53,9 +53,9 @@ namespace WebTest
             });
 
             #region Static Files
-                var options = new DefaultFilesOptions();
+            var options = new DefaultFilesOptions();
             options.DefaultFileNames.Clear();
-            options.DefaultFileNames.Add("index.html");
+            options.DefaultFileNames.Add("Home/Index.html");
             app.UseDefaultFiles(options);
             app.UseStaticFiles();
             #endregion
